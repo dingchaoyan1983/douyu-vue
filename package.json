@@ -38,6 +38,7 @@
   "author": "DingChao <270422767@qq.com>",
   "license": "ISC",
   "dependencies": {
+    "classname": "0.0.0",
     "vue": "^2.1.8"
   },
   "devDependencies": {
