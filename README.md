@@ -1,5 +1,5 @@
 ## douyu-vue
-[douyu website](https://www.douyu.com)  which is written in Vue, JUST FOR FUN!
+[douyu website](https://www.douyu.com)  which is written in [Vue](https://vuejs.org/), JUST FOR FUN!
 
 ## Setup
 
