@@ -9,3 +9,5 @@
 * `npm run watch` Deploy development to `dist` directory, also it provide watch ablitiy
 * `npm run prod` Deploy prodcuct to `dist` directory
 
+## Comparison
+you can compare with my another github repository **[douyu-react](https://github.com/dingchaoyan1983/douyu-react)** to check the difference between these two framework.
