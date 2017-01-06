@@ -1,62 +1,53 @@
-import React from 'react';
 import classname from 'classname';
 
-const {Children, Component} = React;
-
-export default class ActionIcon extends Component {
-    constructor(props, context) {
-        super(props, context);
-        this.state = {
+export default {
+    props: {
+        action: {
+            type: String,
+            default: 'history'
+        },
+        text: {
+            type: String,
+            default: '历史'
+        }
+    },
+    data() {
+        return {
             expanded: false
-        };
-
-        this.closable = true;
-        this.onMouseEnter = this.onMouseEnter.bind(this);
-        this.onMouseLeave = this.onMouseLeave.bind(this);
-    }
-
-    render() {
-        const {action, text, children} = this.props;
-        let dom = <div className={classname(`o-${action}`, 'fl')}>
-                    <span className="icofont h-ico"></span>
-                    <span className="h-txt">{text}</span>
+        }
+    },
+    render(h) {
+        let dom = <div class={classname(`o-${this.action}`, 'fl')}>
+                    <span class="icofont h-ico"></span>
+                    <span class="h-txt">{this.text}</span>
                   </div> 
 
-        if (Children.count(children)) {
-            dom = <div className={classname(`o-${action}`, 'fl', this.state.expanded ? 'open' : '')} onMouseEnter={this.onMouseEnter} onMouseLeave={this.onMouseLeave}>
-                    <span className="icofont h-ico"></span>
-                    <span className="h-txt">{text}</span>
-                    <div className="h-pop">
+        if (Object.keys(this.$slots).length) {
+            dom = <div class={classname(`o-${this.action}`, 'fl', this.expanded ? 'open' : '')} on-mouseenter={this.onMouseEnter} on-mouseleave={this.onMouseLeave}>
+                    <span class="icofont h-ico"></span>
+                    <span class="h-txt">{this.text}</span>
+                    <div class="h-pop">
                         <i></i>
-                        {children}
+                        {this.$slots.default}
                     </div>
                  </div> 
         }   
 
-        return dom;      
-    }
+        return dom;  
+    },
+    methods: {
+        onMouseEnter() {
+            this.closable = false;
+            this.expanded = true;
+        },
+        onMouseLeave() {
+            this.closable = true;
 
-    onMouseEnter() {
-        this.closable = false;
-        this.setState({
-            expanded: true
-        })
-    }
-
-    onMouseLeave() {
-        this.closable = true;
-
-        window.setTimeout(() => {
-            if (this.closable) {
-                this.setState({
-                    expanded: false
-                })
-            }
-        }, 100);
+            window.setTimeout(() => {
+                if (this.closable) {
+                    this.expanded = false;
+                }
+            }, 100);
+        }
     }
 }
-
-ActionIcon.defaultProps = {
-    action: 'history',
-    text: '历史'
-};
