@@ -13,13 +13,16 @@ export default {
         iconClassName: {
             type: String,
             default: 'icon-live'
+        },
+        to: {
+            type: String
         }
     },
     render(h) {
         return <li class={classname('channel-catelist-resize')}>
-                    <a  class="channel-catelist-resize" href={this.href}> <i class={classname('icon', this.iconClassName )}></i>
+                    <router-link to={this.to} active-class="cur" class="channel-catelist-resize" href={this.href}> <i class={classname('icon', this.iconClassName )}></i>
                         <span>{this.text}</span>
-                    </a>
+                    </router-link>
                </li>
     }
 }
