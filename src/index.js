@@ -1,18 +1,16 @@
 import Vue from 'vue';
+
 import 'assets/css/base.css';
 import 'assets/css/scss/index.scss';
+import App from './app';
+import router from './router';
 
-import Header from './components/header';
-import Sidebar from './components/sidebar';
-
-const ROOT = 'container'
+const ROOT = 'container';
 
 window.vm = new Vue({
+  router,
   el: `#${ROOT}`,
   render(h) {
-    return <div>
-             <Header/>
-             <Sidebar/>
-           </div>;
+    return <App/>;
   }
 });
