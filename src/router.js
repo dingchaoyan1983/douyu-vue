@@ -2,11 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
-import AllLives from './components/mainbody/all-lives';
-import AllCategories from './components/mainbody/all-categories';
-import RankingList from './components/mainbody/ranking-list';
-import MyFocus from './components/mainbody/my-focus';
-import WebgameCenter from './components/mainbody/webgame-center';
+const AllLives = (resolve) => require(['./components/mainbody/all-lives'], (component)=> resolve(component.default));
+const AllCategories = (resolve) => require(['./components/mainbody/all-categories'], (component)=> resolve(component.default));
+const RankingList = (resolve) => require(['./components/mainbody/ranking-list'], (component)=> resolve(component.default));
+const MyFocus = (resolve) => require(['./components/mainbody/my-focus'], (component)=> resolve(component.default));
+const WebgameCenter = (resolve) => require(['./components/mainbody/webgame-center'], (component)=> resolve(component.default));
+
 
 export default  new VueRouter({
   routes:[
