@@ -16,7 +16,7 @@ var config = {
   devtool: 'cheap-module-source-map',
   entry: {
     app: path.join(__dirname, src, 'index.js'),
-    vendor: ['vue']
+    vendor: ['vue', 'vue-router', 'vuex', 'es6-promise/auto']
   },
   output: {
     path: path.join(__dirname, dist),
